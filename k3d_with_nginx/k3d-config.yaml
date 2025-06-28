@@ -1,7 +1,7 @@
 apiVersion: k3d.io/v1alpha5
 kind: Simple
 metadata:
-  name: k3d-ngnix-cluster
+  name: k3d-nginx-cluster
 servers: 1
 agents: 2
 ports:

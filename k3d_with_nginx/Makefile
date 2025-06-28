@@ -1,4 +1,4 @@
-CLUSTER_NAME=k3d-ngnix-cluster
+CLUSTER_NAME=k3d-nginx-cluster
 CONFIG_FILE=k3d-config.yaml
 .DEFAULT_GOAL := help
 
@@ -43,22 +43,22 @@ kubeconfig: ## Merge K3d kubeconfig into local ~/.kube/config
 	k3d kubeconfig merge $(CLUSTER_NAME) --switch-context
 
 create.namespace: ## Create Kubernetes namespace
-	kubectl apply -f ngnix-manifest/namespace.yaml
+	kubectl apply -f nginx-manifest/namespace.yaml
 
-deploy.view: ## View ngnix pods, svc
+deploy.view: ## View nginx pods, svc
 	kubectl get pods -n nginx-app
 	kubectl get svc -n nginx-app
 
 delete.namespace: ## Delete Kubernetes namespace
-	kubectl delete -f ngnix-manifest/namespace.yaml
+	kubectl delete -f nginx-manifest/namespace.yaml
 
 deploy.nginx: create.namespace ## Deploy NGINX using manifests
-	kubectl apply -f ngnix-manifest/deployment.yaml
-	kubectl apply -f ngnix-manifest/service.yaml
+	kubectl apply -f nginx-manifest/deployment.yaml
+	kubectl apply -f nginx-manifest/service.yaml
 
 delete.nginx: ## Delete NGINX resources
-	kubectl delete -f ngnix-manifest/service.yaml --ignore-not-found
-	kubectl delete -f ngnix-manifest/deployment.yaml --ignore-not-found
+	kubectl delete -f nginx-manifest/service.yaml --ignore-not-found
+	kubectl delete -f nginx-manifest/deployment.yaml --ignore-not-found
 	$(MAKE) delete.namespace
 
 test.nginx: ## Test NGINX via curl
