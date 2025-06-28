@@ -7,15 +7,14 @@ This project bootstraps a local Kubernetes environment using [K3d](https://k3d.i
 ## 📁 Project Structure
 
 ```bash
-
 .
-├── k3d-config.yaml               # K3d cluster definition (1 server, 2 agents)
+├── k3d-config.yaml               # K3d cluster definition (1 server, 2 agents + custom registry)
 ├── Makefile                      # CLI to manage cluster and app deployment
 ├── README.md                     # This file
 └── ngnix-manifest/               # Kubernetes manifests
+    ├── namespace.yaml
     ├── deployment.yaml
     └── service.yaml
-
 ```
 
 ## 📋 Cluster Details
