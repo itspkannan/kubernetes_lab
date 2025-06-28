@@ -72,28 +72,28 @@ k3d cluster create --config k3d-config.yaml
 INFO[0000] Using config file k3d-config.yaml (k3d.io/v1alpha5#simple)
 INFO[0000] portmapping '8080:80' lacks a nodefilter, but there's more than one node: defaulting to [servers:*:proxy agents:*:proxy]
 INFO[0000] Prep: Network
-INFO[0000] Created network 'k3d-custom-registry-cluster'
-INFO[0000] Created image volume k3d-custom-registry-cluster-images
+INFO[0000] Created network 'k3d-calico-cni-cluster'
+INFO[0000] Created image volume k3d-calico-cni-cluster-images
 INFO[0000] Starting new tools node...
-INFO[0000] Starting node 'k3d-custom-registry-cluster-tools'
-INFO[0001] Creating node 'k3d-custom-registry-cluster-server-0'
-INFO[0001] Creating node 'k3d-custom-registry-cluster-agent-0'
-INFO[0001] Creating node 'k3d-custom-registry-cluster-agent-1'
-INFO[0001] Creating LoadBalancer 'k3d-custom-registry-cluster-serverlb'
+INFO[0000] Starting node 'k3d-calico-cni-cluster-tools'
+INFO[0001] Creating node 'k3d-calico-cni-cluster-server-0'
+INFO[0001] Creating node 'k3d-calico-cni-cluster-agent-0'
+INFO[0001] Creating node 'k3d-calico-cni-cluster-agent-1'
+INFO[0001] Creating LoadBalancer 'k3d-calico-cni-cluster-serverlb'
 INFO[0001] Using the k3d-tools node to gather environment information
 INFO[0001] Starting new tools node...
-INFO[0001] Starting node 'k3d-custom-registry-cluster-tools'
-INFO[0002] Starting cluster 'custom-registry-cluster'
+INFO[0001] Starting node 'k3d-calico-cni-cluster-tools'
+INFO[0002] Starting cluster 'calico-cni-cluster'
 INFO[0002] Starting servers...
-INFO[0002] Starting node 'k3d-custom-registry-cluster-server-0'
+INFO[0002] Starting node 'k3d-calico-cni-cluster-server-0'
 INFO[0004] Starting agents...
-INFO[0004] Starting node 'k3d-custom-registry-cluster-agent-1'
-INFO[0004] Starting node 'k3d-custom-registry-cluster-agent-0'
+INFO[0004] Starting node 'k3d-calico-cni-cluster-agent-1'
+INFO[0004] Starting node 'k3d-calico-cni-cluster-agent-0'
 INFO[0016] Starting helpers...
-INFO[0016] Starting node 'k3d-custom-registry-cluster-serverlb'
+INFO[0016] Starting node 'k3d-calico-cni-cluster-serverlb'
 INFO[0023] Injecting records for hostAliases (incl. host.k3d.internal) and for 5 network members into CoreDNS configmap...
 
-INFO[0025] Cluster 'custom-registry-cluster' created successfully!
+INFO[0025] Cluster 'calico-cni-cluster' created successfully!
 INFO[0025] You can now use it like this:
 kubectl cluster-info
 ```
