@@ -1,4 +1,4 @@
-CLUSTER_NAME=custom-registry-cluster
+CLUSTER_NAME=calico-cni-cluster
 CONFIG_FILE=k3d-config.yaml
 DEFAULT_REG=localhost:5000
 IMAGE_NAME=$(DEFAULT_REG)/nginx:latest
@@ -24,6 +24,12 @@ stop.registry: ## Stop Docker registry
 
 create: ## Create K3d cluster with custom registry
 	k3d cluster create --config $(CONFIG_FILE)
+
+calico.init: ## Initial Calico CNI 
+	kubectl apply -f https://raw.githubusercontent.com/projectcalico/calico/v3.27.3/manifests/calico.yaml
+
+calico.test: ## Initial Calico CNI pods to be active
+	kubectl wait --for=condition=Ready pod --all -n kube-system --timeout=180s
 
 delete.network: ## Delete a K3d network
 	docker network rm k3d-$(CLUSTER_NAME)

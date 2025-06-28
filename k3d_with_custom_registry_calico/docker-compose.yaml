@@ -1,0 +1,15 @@
+services:
+  registry:
+    image: registry:2
+    hostname: calico-cni-cluster-registry
+    container_name: calico-cni-cluster-registry
+    ports:
+      - "5000:5000"
+    restart: always
+    networks:
+      - k3dnet
+
+networks:
+  k3dnet:
+    external: true
+    name: k3d-calico-cni-cluster 

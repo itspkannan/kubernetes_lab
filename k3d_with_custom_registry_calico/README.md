@@ -1,8 +1,9 @@
-## 🚀 Local Kubernetes Cluster with K3d + Custom Registry + NGINX
+## 🚀 Local Kubernetes Cluster with K3d + Custom Registry + Calico CNI + NGINX 
 
 This project bootstraps a local Kubernetes environment using [K3d](https://k3d.io/), runs a **local Docker registry**, and deploys a simple NGINX service using manifests. The NGINX image is pulled from your custom registry, simulating private image usage in real-world Kubernetes deployments.
 
----
+This K3D setup uses Calico as the CNI by disabling Flannel.
+  
 
 ## 📁 Project Structure
 
@@ -21,8 +22,8 @@ This project bootstraps a local Kubernetes environment using [K3d](https://k3d.i
 
 ## 📋 Cluster Details
 
-* **Cluster Name**: `k3d-custom-registry-cluster`
-* **Registry Name**: `custom-registry` (mapped to `localhost:5000`)
+* **Cluster Name**: `k3d-calico-cni-cluster`
+* **Registry Name**: `calico-cni-cluster-registry` (mapped to `localhost:5000`)
 * **Config File**: `k3d-config.yaml`
 * **Ports**:
 
@@ -39,6 +40,7 @@ Run `make help` to see all available commands:
 
 Available commands:
   build.push      Build, push nginx image
+  calico.init     Initial Calico CNI
   create          Create K3d cluster with custom registry
   create.namespace Create Kubernetes namespace
   create.network  Create a K3d network
