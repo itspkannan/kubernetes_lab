@@ -32,7 +32,7 @@ calico.test: ## Initial Calico CNI pods to be active
 	kubectl wait --for=condition=Ready pod --all -n kube-system --timeout=180s
 
 delete.network: ## Delete a K3d network
-	docker network rm k3d-$(CLUSTER_NAME)
+	docker network rm k3d-$(CLUSTER_NAME) || true
 
 delete: ## Delete the k3d cluster
 	k3d cluster delete $(CLUSTER_NAME)

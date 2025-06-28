@@ -55,7 +55,7 @@ deploy.nginx: create.namespace ## Deploy NGINX using manifests
 
 delete.all: delete.nginx delete.namespace ## Cleanup everything
 
-nginx: ## Delete nginx deployment/service
+nginx: ## Delete nginx- deployment/service
 	kubectl delete -f manifests/service.yaml --ignore-not-found
 	kubectl delete -f manifests/deployment.yaml --ignore-not-found
 
