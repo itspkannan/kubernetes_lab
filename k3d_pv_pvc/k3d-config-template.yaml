@@ -1,0 +1,30 @@
+apiVersion: k3d.io/v1alpha5
+kind: Simple
+metadata:
+  name: ${CLUSTER_NAME}
+
+servers: 1
+agents: 2
+
+ports:
+  - port: 8080:80
+    nodeFilters:
+      - loadbalancer
+
+volumes:
+  - volume: ${ROOT_DIR}/volumes:/mnt/data
+    nodeFilters:
+      - agent:*
+
+options:
+  k3s:
+    extraArgs:
+      - arg: "--flannel-backend=none"
+        nodeFilters:
+          - server:*
+      - arg: "--disable-network-policy"
+        nodeFilters:
+          - server:*
+      - arg: "--disable=traefik"
+        nodeFilters:
+          - server:*

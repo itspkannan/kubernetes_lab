@@ -20,7 +20,7 @@ This repository is a personal workshop to learn Kubernetes locally using [K3d](h
 
 ## 📚 Projects Overview
 
-### `k3d_with_ngnix`
+### `k3d Cluster with Nginx deployment`
 
 > **Goal**: Create a K3d cluster with 1 server and 2 agents, deploy an NGINX service with an Ingress, and test it via `curl`.
 
@@ -29,20 +29,30 @@ This repository is a personal workshop to learn Kubernetes locally using [K3d](h
 * 🌐 Binds port `8080` on host to access NGINX via `localhost:8080`
 
 
-### `k3d_with_calico_cni`
+### `k3d cluster using a different CNI(Calico)`
 
 > **Goal**: Replace default K3d networking with [Calico CNI](https://docs.tigera.io/calico/latest/introduction/).
 
 * Sets up Calico as the networking layer
 * Demonstrates Calico pod networking and policy control (To be implemented)
 
-### `k3d_with_custom_registry`
+### `k3d cluster using private registry for docker images`
 
 > **Goal**: Attach a custom local Docker registry to your K3d cluster.
 
 * Automatically creates a registry container
 * Links the registry with the K3d cluster
 * Demonstrates pushing and pulling custom images
+
+
+### `K3d Cluster with Persistence Volumne`
+
+> **Goal**: To persist file created by a pod
+
+* Mount volume onto K3d 
+* Create `Persistent Volume` and `Persistent Volume Claim`.
+* Map the volume on pod to `Persistent Volume Claim`.
+* Validate the file created in pod in the local file system.
 
 
 ## 🧠 Learnings
@@ -52,7 +62,3 @@ This repository is a personal workshop to learn Kubernetes locally using [K3d](h
 * Managing CNIs like Calico
 * Using Makefiles for repeatable infrastructure actions
 
-
-## 📌 License
-
-MIT – feel free to fork, modify, and extend.
